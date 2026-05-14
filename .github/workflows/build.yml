@@ -10,7 +10,6 @@ jobs:
       - name: Build with Buildozer
         uses: Joshela/buildozer-action@master
         with:
-          # Using 'debug' is safer for testing; change to 'release' only when ready for the Play Store
           command: buildozer android debug
           buildozer_version: master
 
