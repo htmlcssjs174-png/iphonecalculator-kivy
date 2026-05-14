@@ -6,8 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Build with Buildozer
         uses: Joshela/buildozer-action@master
         with:
-          command: buildozer android release
+          # Using 'debug' is safer for testing; change to 'release' only when ready for the Play Store
+          command: buildozer android debug
           buildozer_version: master
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-calculator-apk
+          path: bin/*.apk
